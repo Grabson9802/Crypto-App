@@ -18,7 +18,9 @@ class ViewController: UIViewController {
         return tableView
     }()
     
-    private let viewModel = CryptoViewModel()
+    private lazy var viewModel: CryptoViewModel = {
+       return CryptoViewModel()
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()

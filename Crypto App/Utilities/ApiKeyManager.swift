@@ -17,7 +17,7 @@ class APIKeyManager {
     }
 
     private func loadCoinMarketCapAPIKey() {
-        guard let path = Bundle.main.path(forResource: "Info", ofType: "plist"),
+        guard let path = Bundle.main.path(forResource: "Config", ofType: "plist"),
               let configDictionary = NSDictionary(contentsOfFile: path),
               let apiKey = configDictionary["ApiKey"] as? String
         else {
