@@ -9,31 +9,25 @@ import Foundation
 
 class CryptoViewModel {
     private var cryptoData: [CryptoData] = []
+    private let apiService = APIService.shared
     
     func fetchCryptoData(completion: @escaping () -> Void) {
-        guard let url = URL(string: "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest") else {
-            return
+        apiService.fetchCryptoData{ [weak self] result in
+            switch result {
+            case .success(let data):
+                do {
+                    let decoder = JSONDecoder()
+                    let result = try decoder.decode(CryptoDataResponse.self, from: data)
+                    self?.cryptoData = result.data.map { CryptoData(name: $0.name, symbol: $0.symbol, quote: $0.quote) }
+                    completion()
+                } catch {
+                    print("Error decoding JSON: \(error)")
+                }
+                
+            case .failure(let error):
+                print("API request error: \(error.localizedDescription)")
+            }
         }
-        
-        var request = URLRequest(url: url)
-        request.addValue("803de14c-2d94-49bb-8696-647668ac97f7", forHTTPHeaderField: "X-CMC_PRO_API_KEY")
-        
-        URLSession.shared.dataTask(with: request) { [weak self] (data, response, error) in
-            guard let data = data, error == nil else {
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                let result = try decoder.decode(CryptoDataResponse.self, from: data)
-                
-                self?.cryptoData = result.data.map { CryptoData(name: $0.name, symbol: $0.symbol, quote: $0.quote) }
-                
-                completion()
-            } catch {
-                print("Error decoding JSON: \(error)")
-            }
-        }.resume()
     }
     
     func numberOfCryptoCurrencies() -> Int {
