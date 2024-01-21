@@ -11,7 +11,6 @@ struct CryptoDataResponse: Codable {
 
 struct CryptoData: Codable {
     let name: String
-    let symbol: String
     let quote: Quote
 }
 

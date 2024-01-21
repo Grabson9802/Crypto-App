@@ -8,8 +8,20 @@
 import Foundation
 
 class CryptoViewModel {
-    private var cryptoData: [CryptoData] = []
+    
+    weak var delegate: CryptoCollectionViewModelDelegate?
+    
     private let apiService = APIService.shared
+    
+    private var cryptoData: [CryptoData] = [] {
+        didSet {
+            delegate?.didUpdateCryptos()
+        }
+    }
+    
+    var numberOfCryptos: Int {
+        return cryptoData.count
+    }
     
     func fetchCryptoData(completion: @escaping () -> Void) {
         apiService.fetchCryptoData{ [weak self] result in
@@ -18,7 +30,7 @@ class CryptoViewModel {
                 do {
                     let decoder = JSONDecoder()
                     let result = try decoder.decode(CryptoDataResponse.self, from: data)
-                    self?.cryptoData = result.data.map { CryptoData(name: $0.name, symbol: $0.symbol, quote: $0.quote) }
+                    self?.cryptoData = result.data.map { CryptoData(name: $0.name, quote: $0.quote) }
                     completion()
                 } catch {
                     print("Error decoding JSON: \(error)")
@@ -30,11 +42,10 @@ class CryptoViewModel {
         }
     }
     
-    func numberOfCryptoCurrencies() -> Int {
-        return cryptoData.count
-    }
-    
-    func crypto(at index: Int) -> CryptoData {
+    func crypto(at index: Int) -> CryptoData? {
+        guard index >= 0, index < cryptoData.count else {
+            return nil
+        }
         return cryptoData[index]
     }
 }
