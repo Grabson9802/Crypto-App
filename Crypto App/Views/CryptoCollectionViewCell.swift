@@ -14,6 +14,7 @@ class CryptoCollectionViewCell: UICollectionViewCell {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .label
+        label.font = .preferredFont(forTextStyle: .headline)
         return label
     }()
     
@@ -21,20 +22,17 @@ class CryptoCollectionViewCell: UICollectionViewCell {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .label
+        label.font = .preferredFont(forTextStyle: .subheadline)
         return label
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = .systemGray
-        layer.cornerRadius = 10
+        backgroundColor = .systemGray3
+        layer.cornerRadius = 8
         
         setupSubviews()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
     }
     
     func configure(with crypto: CryptoData) {
@@ -47,11 +45,15 @@ class CryptoCollectionViewCell: UICollectionViewCell {
         addSubview(priceLabel)
         
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             
-            priceLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            priceLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             priceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
         ])
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
     }
 }
