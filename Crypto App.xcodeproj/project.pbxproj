@@ -21,6 +21,8 @@
 		660F408A2B5D290E00E048C9 /* CryptoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660F40892B5D290E00E048C9 /* CryptoCollectionViewCell.swift */; };
 		660F408D2B5D399700E048C9 /* CryptoCollectionViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660F408C2B5D399700E048C9 /* CryptoCollectionViewModelDelegate.swift */; };
 		660F408F2B5D623700E048C9 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660F408E2B5D623700E048C9 /* Double+Extensions.swift */; };
+		660F40922B5D9CE300E048C9 /* DetailedCryptoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660F40912B5D9CE300E048C9 /* DetailedCryptoViewController.swift */; };
+		660F40962B5E833A00E048C9 /* DetailedCryptoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660F40952B5E833A00E048C9 /* DetailedCryptoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		660F40892B5D290E00E048C9 /* CryptoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCollectionViewCell.swift; sourceTree = "<group>"; };
 		660F408C2B5D399700E048C9 /* CryptoCollectionViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCollectionViewModelDelegate.swift; sourceTree = "<group>"; };
 		660F408E2B5D623700E048C9 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
+		660F40912B5D9CE300E048C9 /* DetailedCryptoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedCryptoViewController.swift; sourceTree = "<group>"; };
+		660F40952B5E833A00E048C9 /* DetailedCryptoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedCryptoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				6606B7CD2B5AD5D9008F1975 /* RootViewController.swift */,
+				660F40912B5D9CE300E048C9 /* DetailedCryptoViewController.swift */,
 			);
 			path = ViewConrollers;
 			sourceTree = "<group>";
@@ -135,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				660F40892B5D290E00E048C9 /* CryptoCollectionViewCell.swift */,
+				660F40952B5E833A00E048C9 /* DetailedCryptoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -221,6 +227,8 @@
 			files = (
 				660F408A2B5D290E00E048C9 /* CryptoCollectionViewCell.swift in Sources */,
 				6606B7CE2B5AD5D9008F1975 /* RootViewController.swift in Sources */,
+				660F40922B5D9CE300E048C9 /* DetailedCryptoViewController.swift in Sources */,
+				660F40962B5E833A00E048C9 /* DetailedCryptoView.swift in Sources */,
 				660F408D2B5D399700E048C9 /* CryptoCollectionViewModelDelegate.swift in Sources */,
 				6606B7ED2B5AE6E5008F1975 /* APIService.swift in Sources */,
 				660F408F2B5D623700E048C9 /* Double+Extensions.swift in Sources */,

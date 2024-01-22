@@ -80,6 +80,14 @@ extension RootViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let selectedCrypto = viewModel.crypto(at: indexPath.item) else {
+            return
+        }
+        let detailedCryptoViewController = DetailedCryptoViewController(selectedCrypto: selectedCrypto)
+        navigationController?.pushViewController(detailedCryptoViewController, animated: true)
+    }
 }
 
 extension RootViewController: CryptoCollectionViewModelDelegate {

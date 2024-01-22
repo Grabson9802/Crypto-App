@@ -30,7 +30,7 @@ class CryptoViewModel {
                 do {
                     let decoder = JSONDecoder()
                     let result = try decoder.decode(CryptoDataResponse.self, from: data)
-                    self?.cryptoData = result.data.map { CryptoData(name: $0.name, quote: $0.quote) }
+                    self?.cryptoData = result.data.map { CryptoData(name: $0.name, symbol: $0.symbol, quote: $0.quote) }
                     completion()
                 } catch {
                     print("Error decoding JSON: \(error)")

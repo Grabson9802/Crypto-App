@@ -11,6 +11,7 @@ struct CryptoDataResponse: Codable {
 
 struct CryptoData: Codable {
     let name: String
+    let symbol: String
     let quote: Quote
 }
 
@@ -20,4 +21,7 @@ struct Quote: Codable {
 
 struct Price: Codable {
     let price: Double
+    let percent_change_1h: Double
+    let percent_change_24h: Double
+    let percent_change_7d: Double
 }
